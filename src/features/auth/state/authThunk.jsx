@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { api } from "../../../../../react Reux thunk/src/config/api";
 import { toast } from "react-toastify";
 import { api } from "../../../config/api";
 

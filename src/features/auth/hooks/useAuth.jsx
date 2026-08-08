@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { loginThunk } from "../../../../../react Reux thunk/src/features/Auth/Slice/authThunk";
+import { loginThunk } from "../../auth/state/authThunk";
 import { removeUser } from "../state/authSlice";
+
 
 export const useAuth = () => {
   const navigate = useNavigate();

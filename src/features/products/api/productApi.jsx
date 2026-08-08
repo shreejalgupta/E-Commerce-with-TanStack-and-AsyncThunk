@@ -1,4 +1,4 @@
-import { api } from "../../../../../react Reux thunk/src/config/api"
+import { api } from "../../../config/api"
 
 export const getAllProduct = async(search,limit, pageParams) => {
     
