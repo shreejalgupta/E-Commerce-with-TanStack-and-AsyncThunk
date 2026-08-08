@@ -14,11 +14,15 @@ const authSlice = createSlice({
             state.user = action.payload
             isLoading: false
             isAuth: false
+        },
+        removeUser: (state) => {
+            state.user = null,
+            state.isAuth = false
         }
     },
     extraReducers: (builder) => {
         builder.addCase(loginUser.pending, (state, action) => {
-            state.isLoading = false
+            state.isLoading = true
         }).addCase(loginUser.fulfilled, (state, action) => {
             state.user = action.payload
             state.isLoading = false;
@@ -26,14 +30,16 @@ const authSlice = createSlice({
         }).addCase(loginUser.rejected, (state, action) => {
             state.isLoading = false
         }).addCase(hydrationUser.pending, (state, action) => {
-            state.isLoading = false
+            state.isLoading = true
         }).addCase(hydrationUser.fulfilled, (state, action ) => {
             state.user = action.payload
             state.isLoading = false
-            state.reject = true
+            state.isAuth = true
+        }).addCase(hydrationUser.rejected, (state, action) => {
+            state.isLoading = false
         })
     },
 })
 
-export const {addUser} = authSlice.actions
+export const {addUser, removeUser} = authSlice.actions
 export default authSlice.reducer

@@ -29,8 +29,10 @@ export const hydrationUser = createAsyncThunk(
         
       });
       toast.success('userIs logged')
+      
       return res.data;
     } catch (error) {
+      
       console.log(error);
     }
   },

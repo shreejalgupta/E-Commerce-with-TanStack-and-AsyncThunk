@@ -1,14 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Outlet, useNavigate} from 'react-router'
+import { Navigate, Outlet, useNavigate} from 'react-router'
+import SkyMartAppLoader from '../../shared/UI/components/Loading'
 
 const MainRoute = () => {
-  const navigate = useNavigate();
+  
   let {user, isLoading} = useSelector(store => store.auth)
+  
+  if (isLoading) return <SkyMartAppLoader />
 
-  if (isLoading) return <h1>Loading...</h1>
-
-  if(!user) return navigate('/home') 
+  if(!user) return <Navigate to={'/'} /> 
+    
   return <Outlet />
 }
 
